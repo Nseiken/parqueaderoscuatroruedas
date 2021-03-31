@@ -15,6 +15,15 @@ class CreateVehiclesTable extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
+
+            $table->string('brand_vehicle');
+            $table->integer('year');
+            $table->enum('type_vehicle', ['truck', 'motorcycle', 'car', 'van']);
+            $table->string('license_plate');
+            $table->integer('owner_id')->unsigned();
+            
+            $table->foreign('owner_id')->references('id')->on('owners');
+
             $table->timestamps();
         });
     }

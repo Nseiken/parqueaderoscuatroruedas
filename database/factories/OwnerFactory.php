@@ -22,7 +22,9 @@ class OwnerFactory extends Factory
     public function definition()
     {
         return [
-            //
-        ];
+            'name' => $this->faker->name(),
+            'lastname' => $this->faker->lastName(),
+            'identification' => rand(10,10)
+        ]; 
     }
 }
